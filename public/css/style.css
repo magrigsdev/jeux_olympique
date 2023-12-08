@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.index-banner{
+    background-image: url("../pictures/banner.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.index-s1{
+    color: black;
+    background-size: cover;
+    height: 100vh;
+}
