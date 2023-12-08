@@ -1,0 +1,29 @@
+.container{
+    margin-top: 100px !important;
+}
+.login{
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    height: 350px;
+    background-color: #f3f1f1;
+    border-radius:10px ;
+    -webkit-border-radius:10px ;
+    -moz-border-radius:10px ;
+    -ms-border-radius:10px ;
+    -o-border-radius:10px ;
+
+    box-sizing: border-box;
+    
+}
+.input{
+    margin-bottom: 20px;
+    text-align: left !important;
+    text-transform: capitalize;
+    
+}
+label{
+    margin-bottom: 10px;
+    text-align: left !important;
+    font-weight: 500;
+}

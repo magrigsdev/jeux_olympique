@@ -1,6 +1,5 @@
-<?php
- include("./config/_matches.php"); 
- ?>    
+<?php include("./config/_matches.php"); ?> 
+
 <div class="container-fluid">
     <div class="row index-banner">
         <div class="display-1">
@@ -26,7 +25,7 @@
                             <th scope="col">lieu</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         <?php foreach (ResultatAvenir() as $value) : ?>
                             <tr>
@@ -45,12 +44,8 @@
 
         </div>
     </div>
-    
-
     </div>
 </div>
-
-
 
 </body>
 </html>
