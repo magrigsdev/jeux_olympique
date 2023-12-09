@@ -1,4 +1,5 @@
-<?php include("./header2.php"); ?>
+<?php include("../config/_header.php"); ?>
+<?php include("./header.php"); ?>
 
 
 <div class="container mt-4">

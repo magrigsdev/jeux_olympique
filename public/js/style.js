@@ -1,35 +1,69 @@
 
 let adm = document.querySelectorAll(".adm");
-let accueil = document.querySelectorAll(".index");
+let navlink = document.querySelectorAll(".nav-link");
 let url = window.location;
 
-console.log("taille : ..."+ adm.length); 
-if(url == "http://localhost/EXAMEN/"){
+let navbarbrand = document.querySelector(".navbar-brand");
 
-    
-    for (let index = 0; index < adm.length; index++) {
-        //const element = array[index];
-        adm[index].style.display="none";
-        //console.log(adm[index]);  
-    };
-}
-else{
-    document.querySelector(".login").style.display ="none";
+let logout = document.querySelector(".logout");
+logout.style.display="none";
+
+let login = document.querySelector(".login");
+
+//console.log(accueil[0]);
+
+//console.log("taille : ..."+ adm.length); 
+    if(url == "http://localhost/EXAMEN/#" || url == "http://localhost/EXAMEN/"){
+      
+        for (let index = 0; index < adm.length; index++) {
+        
+            adm[index].style.display="none";
+            //console.log(adm[index]);  
+        };       
+    }
+
+    else if(url == "http://localhost/EXAMEN/views/login.php"){
+        //document.querySelector(".login").style.display ="none";
+        
+        login.style.display="none";
+
+         for (let index = 0; index < adm.length; index++) {
+       
+            adm[index].style.display="none";
+            //console.log(adm[index]);  
+            if(index == 0){navlink[index].textContent ="login"}
+            if(index == 1){navlink[index].style.display ="none"}
+            
+        };    
+       
+    }
+    else if(url == "http://localhost/EXAMEN/views/dashboard.php"){
+
+    //document.querySelector(".btnLogin").style.display ="none";
+    //affiche le button logout
+    logout.style.display="block";
+
+    navbarbrand.style.display="none"
+
+    login.style.display="block";
+    login.textContent ="Recherche";
+
     for (let index = 0; index < adm.length; index++) {
         //affiche
         adm[index].style.display="block";
         
         //change la valeur
         if(index == 0){
-            accueil[index].textContent ="Dashboard";
+            
+            navlink[index].textContent ="Dashboard";
         }
         //caché
         if(index == 1){
-            accueil[index].style.display ="none";
+            navlink[index].style.display ="none";
         }
 
-        console.log(accueil[index]);
+       
          
-    };
-}
+     };
 
+    }

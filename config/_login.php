@@ -7,7 +7,10 @@ if(isset($_POST["user"]) && isset($_POST["pwd"])){
     $pwd = htmlspecialchars($pwd);
 
     if(getLogin($user, $pwd)){
-        echo "vous etes connecter";    
+        echo "vous etes connecter";
+        $error = false;
+        $page ='http://localhost/EXAMEN/views/dashboard.php';
+        header('Location:'.$page,$error);    
     }
     else{
          echo "connection echoué";
@@ -35,4 +38,6 @@ function getLogin( $username, $password ){
     return $login;
 }
 //getLogin($user, $pwd);
+
+
 ?>
