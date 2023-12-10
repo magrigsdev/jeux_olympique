@@ -1,4 +1,4 @@
-
+//header js
 let adm = document.querySelectorAll(".adm");
 let navlink = document.querySelectorAll(".nav-link");
 let url = window.location;
@@ -9,8 +9,8 @@ let logout = document.querySelector(".logout");
 logout.style.display="none";
 
 let login = document.querySelector(".login");
+//------------------ fin
 
-//console.log(accueil[0]);
 
 //console.log("taille : ..."+ adm.length); 
     if(url == "http://localhost/EXAMEN/#" || url == "http://localhost/EXAMEN/"){
@@ -56,14 +56,26 @@ let login = document.querySelector(".login");
         if(index == 0){
             
             navlink[index].textContent ="Dashboard";
+            
         }
         //caché
         if(index == 1){
             navlink[index].style.display ="none";
-        }
-
-       
-         
+        }     
      };
 
     }
+
+    // DASHBOARD -----------------------
+   
+    let adm_contents = document.querySelectorAll(".adm_contents");
+    adm_contents[0].style.display="block";
+    //navlink[1].classList.add('active');
+
+
+    for (let index = 1; index < adm_contents.length; index++) {
+        //affiche
+        adm_contents[index].style.display="none";
+              
+     };
+
