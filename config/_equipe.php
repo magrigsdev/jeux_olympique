@@ -6,7 +6,7 @@ function getEquipeAll(){
     $item = array();
     $items = array();
 
-    $sql = "SELECT * FROM equipe";
+    $sql = "SELECT * FROM equipe limit 50";
     $stat = $pdo->prepare($sql);
     $stat->execute();
 
@@ -42,13 +42,14 @@ function AddEquipe($nom){
     //CHECKING
     foreach ( getEquipeAll() as $value) {
         # code...
-        if($value["nom_equipe"] == $nom){
+        if($value["nom"] == $nom){
             $isNameExist = true;
-            break;
+            var_dump($value["nom"]);
+           
         }
    
     }
-    if(!$isNameExist){
+    if($isNameExist  != true){
         $sql = "INSERT INTO equipe VALUES(NULL, :nom)";
         $stat = $pdo->prepare($sql);
         $stat->execute(["nom"=> $nom]);
@@ -62,7 +63,7 @@ function UpdateEquipe($id, $nom){
     include("bd.php");
     if(gettype($id)== "string"){$id = intval($id);};
 
-    $sql = "UPDATE equipe SET name = :nom WHERE id_equipe= :id";
+    $sql = "UPDATE equipe SET nom_equipe = :nom WHERE id_equipe= :id";
     $stat= $pdo->prepare($sql);
     $stat->execute(["id"=> $id,"nom"=> $nom]);
 
@@ -78,4 +79,32 @@ function DelEquipe($id){
 
 ?>
 
+<?php 
+//add equipe
+if(isset($_POST["add"]))
+{
+
+    if(AddEquipe(strtoupper($_POST["equipe"])) != true){
+
+        var_dump(AddEquipe($_POST["equipe"])) ;
+        $page = "../views/dashboard.php";
+        header("location:".$page);
+    }
+    else{
+        echo "not add";
+    }
+}
+
+//update
+if(isset($_POST["update"]))
+{
+    UpdateEquipe($_POST["Id_update"], strtoupper($_POST["v_update"]));
+    $page = "../views/dashboard.php";
+    header("location:".$page);
+}
+
+
+
+
+?>
 

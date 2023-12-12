@@ -33,7 +33,7 @@
                     <a class="nav-link" href="#">Ancienne matches</a>
                     </li>
                 
-                    <li class="nav-item adm"><a class="nav-link" href="#">équipe</a></li>
+                    <li class="nav-item adm"><a class="nav-link" href="./viewequipe.php">équipe</a></li>
                     <li class="nav-item adm"><a class="nav-link" href="#">personnel</a></li>
                     <li class="nav-item adm"><a class="nav-link" href="#">matches</a></li>
                     <li class="nav-item adm"><a class="nav-link" href="#">affichages</a></li>
@@ -41,9 +41,10 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2 adm" type="search" placeholder="Search" aria-label="Search">
+
                     <a  class="btn btn-outline-success me-2 login" href="./views/login.php">Login</a>
 
-                    <a  class="btn btn-outline-danger logout me-2" href="./views/login.php">Logout</a>
+                    <a  class="btn btn-outline-danger logout me-2" href="../">Logout</a>
                 </form>
                 </div>
             </div>

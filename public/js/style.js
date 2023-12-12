@@ -68,14 +68,22 @@ let login = document.querySelector(".login");
 
     // DASHBOARD -----------------------
    
-    let adm_contents = document.querySelectorAll(".adm_contents");
-    adm_contents[0].style.display="block";
-    //navlink[1].classList.add('active');
+    // let adm_contents = document.querySelectorAll(".adm_contents");
+    // adm_contents[0].style.display="block";
+    // //navlink[1].classList.add('active');
 
 
-    for (let index = 1; index < adm_contents.length; index++) {
-        //affiche
-        adm_contents[index].style.display="none";
+    // for (let index = 1; index < adm_contents.length; index++) {
+    //     //affiche
+    //     adm_contents[index].style.display="none";
               
-     };
+    //  };
 
+// equipe------------------
+
+let updateButton = document.getElementById("updateButton");
+    updateButton.addEventListener("click", ()=>{
+    console.log(this.updateButton);
+    console.log("bonjour")
+    
+})
