@@ -44,15 +44,15 @@ function AddEquipe($nom){
         # code...
         if($value["nom"] == $nom){
             $isNameExist = true;
-            var_dump($value["nom"]);
-           
+            
         }
-   
     }
     if($isNameExist  != true){
-        $sql = "INSERT INTO equipe VALUES(NULL, :nom)";
+        $sql = "INSERT INTO `equipe`(`id_equipe`, `nom_equipe`) VALUES ('NULL','$nom')";
+        //$sql = "INSERT INTO equipe VALUES(NULL,:nom)";
         $stat = $pdo->prepare($sql);
-        $stat->execute(["nom"=> $nom]);
+        $stat->execute();
+        //$stat->execute(["nom"=> $nom]);
     }
 
     return  $isNameExist;
@@ -83,7 +83,6 @@ function DelEquipe($id){
 //add equipe
 if(isset($_POST["add"]))
 {
-
     if(AddEquipe(strtoupper($_POST["equipe"])) != true){
 
         var_dump(AddEquipe($_POST["equipe"])) ;
@@ -91,7 +90,10 @@ if(isset($_POST["add"]))
         header("location:".$page);
     }
     else{
-        echo "not add";
+         include("../config/_header.php");
+         $erreur = "<div class='alert alert-danger'> l\'équipe existe déjà :".strtoupper($_POST["equipe"])." </div>";
+         $retour = "<br><a class='btn btn-outline-danger' href='../views/viewequipe.php'> Retour</a>";
+        echo $erreur;
     }
 }
 
@@ -103,6 +105,11 @@ if(isset($_POST["update"]))
     header("location:".$page);
 }
 
+if(isset($_GET["del"])){
+    DelEquipe($_GET["del"]);
+    $page = "../views/dashboard.php";
+    header("location:".$page);
+}
 
 
 

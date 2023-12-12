@@ -12067,3 +12067,10 @@ textarea.form-control-lg {
 
 /*# sourceMappingURL=bootstrap.css.map */
 
+
+.unactived{
+  display: none;
+}
+.actived{
+  display: block;
+}
