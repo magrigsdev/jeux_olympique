@@ -29,14 +29,14 @@
                     <a class="nav-link active" aria-current="page" href="#">accueil</a>
                     </li>
 
-                    <li class="nav-item ">
+                    <!-- <li class="nav-item ">
                     <a class="nav-link desabled" href="#" >Ancienne matches</a>
-                    </li> 
+                    </li>  -->
                 
-                    <li class="nav-item adm"><a class="nav-link navclik" href="" >équipe</a></li>
-                    <li class="nav-item adm"><a class="nav-link navclik" href="" >personnel</a></li>
-                    <li class="nav-item adm"><a class="nav-link navclik" href="" >matches</a></li>
-                    <li class="nav-item adm"><a class="nav-link navclik" href="">affichages</a></li>
+                    <!-- <li class="nav-item adm desabled"><a class="nav-link navclik" href="" >équipe</a></li>
+                    <li class="nav-item adm desabled"><a class="nav-link navclik" href="" >personnel</a></li>
+                    <li class="nav-item adm desabled"><a class="nav-link navclik" href="" >matches</a></li>
+                    <li class="nav-item adm desabled"><a class="nav-link navclik" href="">affichages</a></li> -->
                  
                 </ul>
                 <form class="d-flex" role="search">

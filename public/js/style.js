@@ -23,14 +23,17 @@ function showDashboard(){
     login.textContent ="Recherche";
 
     for (let index = 0; index < adm.length; index++) {
+        
         //affiche
-        adm[index].style.display="block";
+        adm[index].style.display="none";
         
         //change la valeur
         if(index == 0){          
             navlink[index].textContent ="Dashboard";           
         }
-        //caché
+
+
+        // caché
         if(index == 1){
             navlink[index].style.display ="none";
         }     
@@ -62,7 +65,7 @@ function showDashboard(){
         };    
        
     }
-    else if(url == "http://localhost/EXAMEN/views/dashboard.php"){
+    else if(url == "http://localhost/EXAMEN/views/dashboard.php" || url == "http://localhost/EXAMEN/views/viewupdate.php"){
 
     showDashboard()
     }
@@ -71,16 +74,16 @@ function showDashboard(){
 
     // DASHBOARD -----------------------http://localhost/EXAMEN/views/viewequipe.php
    
-    let adm_contents = document.querySelectorAll(".adm_contents");
-    let navclik = document.querySelectorAll(".navclik");
-    let index = 0;
+    // let adm_contents = document.querySelectorAll(".adm_contents");
+    // let navclik = document.querySelectorAll(".navclik");
+    // let index = 0;
 
-    navclik.forEach(item =>{
+    // navclik.forEach(item =>{
 
-        item.addEventListener('click', ()=>{
-            console.log(item)
-        })
-    })
+    //     item.addEventListener('click', ()=>{
+    //         console.log(item)
+    //     })
+    // })
     
     // let navlinks = Array;
     // let i = 0;

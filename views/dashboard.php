@@ -10,42 +10,41 @@
 
 <div class="container mb-4">
 
+    <div class="row mt-5">
+        <form method="Post" action="./dashboard.php" class="list-inline">
+
+        <div class="input-group mb-3">
+
+            <button type="submit" class="btn btn-outline-success" name="f-equipe">Equipe</button>
+
+            <button type="submit" class="btn btn-outline-success" name="f-personnel">Personnel</button>
+
+            <button type="submit" class="btn btn-outline-success" name="f-matches">Matches</button>
+
+            <button type="submit" class="btn btn-outline-success" name="f-affichage">Affichage</button>
+     
+        </div>
+        </form>
+        
+    </div>
+
+    <?php if(isset($_POST["f-matches"])) { ?>
+        <?php include("./viewmatches.php"); ?>
+    <?php } ?>
+
+    <?php if(isset($_POST["f-personnel"])) { ?>
+        <?php include("./viewpersonnel.php"); ?>
+    <?php } ?>
+
+    <?php if(isset($_POST["f-equipe"])) { ?>
+        <?php include("./viewequipe.php"); ?>
+    <?php } ?>
+
+    <?php if(isset($_POST["f-affichage"])) { ?>
+        <?php include("./viewaffichage.php"); ?>
+    <?php } ?>
    
-     <?php include("./viewpersonnel.php"); ?>
 
-
-    <div class="row mt-4 adm_contents">
-        <div class="col-md-12">
-            <div class="card p-4">
-                <div class="card-title">
-                    <h1 class="display-3 text-uppercase">matches</h1>
-                    <hr class="hr">
-                </div>
-                <div class="card-body">
-                    <p class="small">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolores placeat aliquid accusamus, consequatur quaerat repellat dolor aut, itaque nostrum explicabo deleniti sint natus laudantium impedit voluptates incidunt atque officiis.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-4 adm_contents">
-        <div class="col-md-12">
-            <div class="card p-4">
-                <div class="card-title">
-                    <h1 class="display-3 text-uppercase">affichages</h1>
-                    <hr class="hr">
-                </div>
-                <div class="card-body">
-                    <p class="small">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolores placeat aliquid accusamus, consequatur quaerat repellat dolor aut, itaque nostrum explicabo deleniti sint natus laudantium impedit voluptates incidunt atque officiis.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
     
     

@@ -8,48 +8,7 @@
                         <hr class="hr">
                     </div>
         <!-- =======================================================================  p_Idupdate           -->
-                    <?php if(isset($_POST["p_isUpdate"])) { ?>
-                        <div class="card col-md-4">
-                            <form method="POST" action="../config/_personnel.php">
-                                <div class="modal-body p-4">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" 
-                                        value="<?= $_POST["p_Idupdate"] ?>" name="id" hidden>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="<?= getPersonnelPrenom($_POST["p_Idupdate"]) ?>" name="prenom" required>
-                                    </div>
 
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="<?= getPersonnel($_POST["p_Idupdate"]) ?>" name="nom" required>
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="<?= getPersonnelSexe($_POST["p_Idupdate"]) ?>" name="sexe" required>
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="<?= getPersonnelRole($_POST["p_Idupdate"]) ?>" name="role" required>
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                    <select class="form-select mt-2" aria-label="Default select example" name="equipe">
-                                        <?php foreach(getEquipeAll() as $equipe) {  ?>
-                                        <option value="<?php echo $equipe["id"]?>"><?php echo $equipe["nom"]?></option>
-                                        <?php } ?>
-                                    </select>
-                                    </div>
-
-
-
-                                            <div class="modal-footer">
-                                                <button type="submit"class="btn btn-outline-warning right" name="update">update</button>
-                                            </div>
-                                    </div>
-                                </form>
-                        </div>
-                
-                    <?php   } ?>
                     <!-- ============================================================ -->
                     <div class="card-body">
                         <div class="row">
@@ -87,7 +46,7 @@
                                         <td><?= $value["role"]   ?></td> 
                                         <td><?= $value["nom_equipe"]   ?></td> 
 
-                                        <td><form method="POST" action="./dashboard.php"><input type="text" name="p_Idupdate" value="<?= $value["id"]?>" hidden/><button type="submit" class="btn btn-outline-warning" name="p_isUpdate">update</button></form>
+                                        <td><form method="POST" action="./viewupdate.php"><input type="text" name="p_Idupdate" value="<?= $value["id"]?>" hidden/><button type="submit" class="btn btn-outline-warning" name="p_isUpdate">update</button></form>
 
                                         <td><form method="POST" action="../config/_personnel.php?del=<?= $value["id"]?>"><button class="btn btn-outline-danger">delete</button> </form></td>                              
                                     </tr>

@@ -1,10 +1,10 @@
 
 
-    <div class="row mt-4 adm_contents">
+<div class="row mt-4 adm_contents">
             <div class="col-md-12">
                 <div class="card p-4">
                     <div class="card-title">
-                        <h1 class="display-3 text-uppercase"> equipe<span class="text-info">.</span></h1>
+                        <h1 class="display-3 text-uppercase"> matches<span class="text-success">.</span></h1>
                         <hr class="hr">
                     </div>
                     
