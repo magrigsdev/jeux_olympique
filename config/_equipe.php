@@ -1,5 +1,25 @@
-<?php 
 
+<?php 
+function getTypeAll(){
+    
+    include("bd.php");
+    $item = array();
+    $items = array();
+
+    $sql = "SELECT * FROM type_discipline limit 50";
+    $stat = $pdo->prepare($sql);
+    $stat->execute();
+
+    $matches = $stat->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($matches as $value) {
+        # code...
+        $item["type"] = $value["type"];
+        $items [] = $item;   
+    }
+
+    return $items;
+}
 function getEquipeAll(){
     
     include("bd.php");

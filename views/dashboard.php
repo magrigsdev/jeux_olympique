@@ -4,7 +4,9 @@
 <?php include("../config/_equipe.php"); ?>
 <?php include("../config/_personnel.php"); ?>
 
+
 <?php $row = 0;?>
+
 <?php $p_ligne = 0;?>
 
 

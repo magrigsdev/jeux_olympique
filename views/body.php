@@ -23,6 +23,7 @@ $ligne1 = 0; ?>
                             <th scope="col">equipe</th>
                             <th scope="col">vs </th>
                             <th scope="col">equipe</th>
+                            <th scope="col">type </th>
                             <th scope="col">date </th>
                             <th scope="col">lieu</th>
                         </tr>
@@ -35,6 +36,7 @@ $ligne1 = 0; ?>
                                 <td><?= $value["id_equipe_a"]   ?></td>
                                 <td>-</td>
                                 <td><?= $value["id_equipe_b"]   ?></td>
+                                <td><?= $value["type"]   ?></td>
                                 <td><?= $value["date_de_rencontre"]   ?> </td>
                                 <td class="text-uppercase"><?= $value["lieu"]   ?></td>                               
                             </tr>
