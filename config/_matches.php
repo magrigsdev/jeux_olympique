@@ -89,7 +89,6 @@ function getEquipeAllforMatches(){
     return $items;
 }
 
-
 function getEquipeforMatches($id){
     $item = array();
     if(gettype($id)== "string"){$id = intval($id);};
@@ -100,6 +99,133 @@ function getEquipeforMatches($id){
     $stat->execute();
     $equipe = $stat->fetch();
     return $equipe["nom_equipe"];
+}
+
+// =================================================================
+function getMatch ($id){
+    $item = array();
+    if(gettype($id)== "string"){$id = intval($id);};
+    
+    include("bd.php");
+    $sql = "SELECT * FROM rencontre WHERE id_rencontre =".$id;
+
+    $stat = $pdo->prepare($sql);
+    $stat->execute();
+    $row = $stat->fetch();
+    return $row;
+}
+
+function getMatchLieu($id){
+    $item = array();
+    if(gettype($id)== "string"){$id = intval($id);};
+    
+    include("bd.php");
+    $sql = "SELECT * FROM rencontre WHERE id_rencontre =".$id;
+
+    $stat = $pdo->prepare($sql);
+    $stat->execute();
+    $row = $stat->fetch();
+
+    return $row["lieu"];
+}
+
+function AddMatch( $lieu, $type, $equipeA, $equipeB,$date_rencontre){
+    include("bd.php");
+    $isErreur = false;
+    
+
+    //verifier si les deux equipe sont les memes
+    if($equipeA == $equipeB){
+        $isErreur = true;
+    }
+
+    if($isErreur  != true){
+        $sql ="INSERT INTO rencontre VALUES(NULL, :lieu, :type, :equipea, :equipeb,:dateR)";
+    
+        $st = $pdo->prepare($sql);
+        $st->execute([
+            "lieu"=>$lieu,
+            "type"=>$type,
+            "equipea"=>$equipeA,
+            "equipeb"=>$equipeB,
+            "dateR"=>$date_rencontre
+        ]);
+    }
+
+    return  $isNameExist;
+
+}
+
+function UpdateMatch($id, $lieu,$date_rencontre){
+    include("bd.php");
+    if(gettype($id)== "string"){$id = intval($id);};
+
+    // $sql = "UPDATE rencontre
+    // SET  lieu =:lieu, type =:type, id_equipe_a =:equipeA, id_equipe_b =:equipeB, date_rencontre =:date_rencontre,  
+    // WHERE id_rencontre =:id";
+
+    $sql = "UPDATE `rencontre` SET `id_rencontre`='$id',`lieu`='$lieu',`date_rencontre`='$date_rencontre' WHERE `id_rencontre`='$id'";
+
+    $stat= $pdo->prepare($sql);
+    $stat->execute();
+
+    // $stat->execute([
+    //     "id"=>$id,   
+    //     "nom"=> $nom,
+    //     "prenom"=> $prenom,
+    //     "sexe"=> $sexe,
+    //     "role"=> $role,
+    //     "id_equipe"=>$nom_equipe
+    // ]);
+
+}
+
+function DelMatch($id){
+    include("bd.php");
+
+    $sql = "DELETE  FROM rencontre 
+    WHERE id_rencontre= :id";
+
+    $stat = $pdo->prepare($sql);
+    $stat->execute(["id"=> $id]);
+}
+?>
+<!-- ================================================ -->
+<?php  
+ 
+//add match
+// $lieu, $type, $equipeA, $equipeB,$date_rencontre
+if(isset($_POST["add"]))
+{
+
+    if(AddMatch($_POST["lieu"], $_POST["type"],$_POST["equipea"],$_POST["equipeb"],$_POST["dater"]) != true){
+
+        // var_dump(AddPersonnel($_POST["equipe"])) ;
+        $page = "../views/dashboard.php";
+        header("location:".$page);
+    }
+    else{
+         include("../config/_header.php");
+         $erreur = "<div class='alert alert-danger'> donnée  existe déjà :".strtoupper($_POST["equipe"])." </div>";
+         $retour = "<br><a class='btn btn-outline-danger' href='../views/viewequipe.php'> Retour</a>";
+        echo $erreur.$retour;
+    }
+}
+
+//update
+if(isset($_POST["update"]))
+{
+    UpdateMatch($_POST["id"],
+    $_POST["lieu"],
+    $_POST["dater"]);
+    $page = "../views/dashboard.php";
+    header("location:".$page);
+}
+
+if(isset($_GET["del"])){
+    DelMatch($_GET["del"]);
+    $page = "../views/dashboard.php";
+    header("location:".$page);
 }
 
 

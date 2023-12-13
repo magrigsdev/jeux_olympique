@@ -32,7 +32,7 @@
                             <th scope="col">date </th>
                             <th scope="col">lieu</th>
                             <th scope="col">update</th>
-                            <th scope="col">delete</th>
+                            <th scope="col">annuler</th>
                         </tr>
                             </thead>
 
@@ -49,7 +49,7 @@
 
                                         <td><form method="POST" action="./viewupdate.php"><input type="text" name="Idupdate" value="<?= $value["id_rencontre"]?>" hidden/><button type="submit" class="btn btn-outline-warning" name="m_isUpdate">update</button></form>
 
-                                        <td><form method="POST" action="../config/_matches.php?del=<?= $value["id_rencontre"]?>"><button class="btn btn-outline-danger">delete</button> </form></td>                              
+                                        <td><form method="POST" action="../config/_matches.php?del=<?= $value["id_rencontre"]?>"><button class="btn btn-outline-danger">annuler</button> </form></td>                              
                                     </tr>
                                 <?php  endforeach  ?>
 
@@ -67,7 +67,7 @@
 
             <div class="modal-content">
 
-                <form action="../config/_equipe.php" method="post">
+                <form action="../config/_matches.php" method="post">
                         <div class="modal-header">
                             <h5 class="modal-title text-capitalize">planifier</h5>
                             <a class="btn-close" data-bs-dismiss="modal" aria-label="Cloqe"></a>
@@ -76,7 +76,7 @@
                         <div class="modal-body">
                             <label for="equipe">equipe 1</label>
                             <div class="input-group mb-3">
-                                <select class="form-select mt-2" aria-label="Default select example" name="equipe">
+                                <select class="form-select mt-2" aria-label="Default select example" name="equipea">
                                     <?php foreach(getEquipeAll() as $equipe) {  ?>
                                     <option value="<?php echo $equipe["id"]?>"><?php echo $equipe["nom"]?></option>
                                     <?php } ?>
@@ -85,7 +85,7 @@
                             
                             <label for="equipe">equipe 2</label>
                             <div class="input-group mb-3">
-                                <select class="form-select mt-2" aria-label="Default select example" name="equipe">
+                                <select class="form-select mt-2" aria-label="Default select example" name="equipeb">
                                     <?php foreach(getEquipeAll() as $equipe) {  ?>
                                     <option value="<?php echo $equipe["id"]?>"><?php echo $equipe["nom"]?></option>
                                     <?php } ?>
@@ -94,7 +94,7 @@
 
                             <label for="equipe">type de discipline</label>
                             <div class="input-group mb-3">
-                                <select class="form-select mt-2" aria-label="Default select example" name="equipe">
+                                <select class="form-select mt-2" aria-label="Default select example" name="type">
                                     <?php foreach(getTypeAll() as $equipe) {  ?>
                                     <option value="<?php echo $equipe["type"]?>"><?php echo $equipe["type"]?></option>
                                     <?php } ?>
@@ -103,12 +103,12 @@
 
                             <label for="equipe">date</label>
                             <div class="input-group mb-3">
-                                <input type="date" class="form-control" placeholder="nom de equipe" name="equipe" required>
+                                <input type="date" class="form-control" placeholder="nom de equipe" name="dater" required>
                             </div>
 
                             <label for="equipe">lieu</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="nom de equipe" name="lieu" required>
+                                <input type="text" class="form-control" placeholder="lieu" name="lieu" required>
                             </div>
                         </div>
  

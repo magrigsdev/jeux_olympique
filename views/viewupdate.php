@@ -4,6 +4,7 @@
 
 <?php include("../config/_equipe.php"); ?>
 <?php include("../config/_personnel.php"); ?>
+<?php include("../config/_matches.php"); ?>
 
 <?php if(isset($_POST["isUpdate"])) { ?>
 
@@ -71,4 +72,34 @@
                                 </form>
                         </div>
                 
-                    <?php   } ?>
+<?php   } ?>
+
+<?php if(isset($_POST["m_isUpdate"])) { ?>
+                        <div class="card col-md-4 m-5">
+                            <form method="POST" action="../config/_matches.php">
+                                <div class="modal-body p-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" 
+                                        value="<?= $_POST["Idupdate"] ?>" name="id" hidden>
+                                    </div>
+
+                            <label for="equipe">date</label>
+                            <div class="input-group mb-3">
+                                <input type="date" class="form-control" placeholder="nom de equipe" name="dater" required>
+                            </div>
+
+                            <label for="equipe">lieu</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="<?= getMatchLieu($_POST["Idupdate"]) ?>" name="lieu" required>
+                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="submit"class="btn btn-outline-warning right" name="update">update</button>
+
+                                                <a href="./dashboard.php" class="btn btn-outline-danger m-2">retour</a>
+                                            </div>
+                                    </div>
+                                </form>
+                        </div>
+                
+<?php   } ?>
