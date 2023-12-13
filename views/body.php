@@ -1,4 +1,7 @@
-<?php include("./config/_matches.php"); ?> 
+
+<?php include("./config/_matches.php"); ?>
+<?php $ligne = 0;
+$ligne1 = 0; ?>
 
 <div class="container-fluid">
     <div class="row index-banner">
@@ -11,15 +14,14 @@
 
     <div class="row index-s1 ">
         <div class="col-md-12">
-            <h1 class="text-uppercase fw-light ">  les prochaines rencontres  </h1>
+            <h1 class="text-uppercase fw-light mt-4">  les prochaines rencontres  </h1>
             <hr class="hr"/>
             <table class="table table-striped table-hover">
                     <thead>
                         <tr class="text-capitalize">
                             <th scope="col">#</th>
                             <th scope="col">equipe</th>
-                            <th scope="col">score </th>
-                            <th scope="col">score </th>
+                            <th scope="col">vs </th>
                             <th scope="col">equipe</th>
                             <th scope="col">date </th>
                             <th scope="col">lieu</th>
@@ -27,25 +29,62 @@
                     </thead>
 
                     <tbody>
-                        <?php foreach (ResultatAvenir() as $value) : ?>
+                        <?php foreach (MatchesAvenir() as $value) : $ligne++ ?>
                             <tr>
-                                <th> <?= $value["id_rencontre"]   ?>  </th>
+                                <th> <?= $ligne   ?>  </th>
                                 <td><?= $value["id_equipe_a"]   ?></td>
-                                <td><?= $value["score_equipe_a"]   ?></td>
-                                <td><?= $value["score_equipe_b"]   ?></td>
+                                <td>-</td>
                                 <td><?= $value["id_equipe_b"]   ?></td>
                                 <td><?= $value["date_de_rencontre"]   ?> </td>
-                                <td><?= $value["lieu"]   ?></td>                               
+                                <td class="text-uppercase"><?= $value["lieu"]   ?></td>                               
+                            </tr>
+                        <?php  endforeach  ?>
+
+                    </tbody>
+            </table>
+            <form action="." method="Post">
+                <button type="submit" class="btn btn-outline-danger" name="anciene">Ancienne Matches</button>
+            </form>
+            <?php if(isset($_POST['anciene'])) { ?>
+            <h1 class="text-uppercase fw-light">  les anciennes matches  </h1>
+            <hr class="hr"/>
+            <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="text-capitalize">
+                            <th scope="col">#</th>
+                            <th scope="col">equipe</th>
+                            <th scope="col">vs </th>
+                            <th scope="col">equipe</th>
+                            <th scope="col">date </th>
+                            <th scope="col">lieu</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach (MatchesPasse() as $value) : $ligne1++ ?>
+                            <tr>
+                                <th> <?= $ligne1   ?>  </th>
+                                <td><?= $value["id_equipe_a"]   ?></td>
+                                <td>-</td>
+                                <td><?= $value["id_equipe_b"]   ?></td>
+                                <td><?= $value["date_de_rencontre"]   ?> </td>
+                                <td class="text-uppercase"><?= $value["lieu"]   ?></td>                               
                             </tr>
                         <?php  endforeach  ?>
 
                     </tbody>
             </table>
 
+    
+    <?php } ?>
+
         </div>
     </div>
-    </div>
+
+
 </div>
+
+
 
 </body>
 </html>

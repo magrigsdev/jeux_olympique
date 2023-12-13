@@ -30,7 +30,7 @@
                     </li>
 
                     <li class="nav-item ">
-                    <a class="nav-link" href="#">Ancienne matches</a>
+                    <a class="nav-link desabled" href="#" >Ancienne matches</a>
                     </li> 
                 
                     <li class="nav-item adm"><a class="nav-link navclik" href="" >équipe</a></li>
