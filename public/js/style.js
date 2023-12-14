@@ -19,8 +19,8 @@ function showDashboard(){
 
     navbarbrand.style.display="none"
 
-    login.style.display="block";
-    login.textContent ="Recherche";
+    login.style.display="none";
+    // login.textContent ="Recherchesssss";
 
     for (let index = 0; index < adm.length; index++) {
         
@@ -31,13 +31,13 @@ function showDashboard(){
         if(index == 0){          
             navlink[index].textContent ="Dashboard";           
         }
-
-
         // caché
         if(index == 1){
             navlink[index].style.display ="none";
         }     
      };
+
+     console.log("recherche");
 }
 
 //console.log("taille : ..."+ adm.length); 
@@ -65,11 +65,11 @@ function showDashboard(){
         };    
        
     }
-    else if(url == "http://localhost/EXAMEN/views/dashboard.php" || url == "http://localhost/EXAMEN/views/viewupdate.php"){
-
-    showDashboard()
-    }
-
+    else if(url == "http://localhost/EXAMEN/views/dashboard.php" || url == "http://localhost/EXAMEN/views/viewupdate.php" || url == "http://localhost/EXAMEN/views/viewrecherche.php"){
+        
+            showDashboard()
+     }
+//
     // -----------------------  RUNNING ------------------------------------------
 
     // DASHBOARD -----------------------http://localhost/EXAMEN/views/viewequipe.php

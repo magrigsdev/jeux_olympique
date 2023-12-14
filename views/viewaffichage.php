@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+</div>
 <!-- fin update  delete-->
 
     <div class="modal fade" tabindex="-1" id="ajouterequipe" aria-hidden="true">
