@@ -76,7 +76,6 @@ function AddEquipe($nom){
     }
 
     return  $isNameExist;
-
 }
 
 function UpdateEquipe($id, $nom){
