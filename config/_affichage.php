@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 function getRencontre($id){
     $item = array();
     if(gettype($id)== "string"){$id = intval($id);};
@@ -11,11 +11,13 @@ function getRencontre($id){
 
     return $equipe["nom_equipe"];
 }
-function getRencontresPast(){
+function getEquipeParticipant(){
     include("bd.php");
-    $sql = "SELECT * FROM rencontre JOIN resultat_match
-        ON rencontre.id_rencontre = resultat_match.id_rencontre 
-        WHERE rencontre.date_rencontre LIKE '%2024%'";
+    $sql = "SELECT * FROM equipe JOIN personnel
+        ON personnel.id_equipe = equipe.id_equipe
+        ORDER BY nom_equipe ASC" ;
+        // -- WHERE rencontre.date_rencontre LIKE '%2024%'";
+        
 
     $st = $pdo->prepare($sql);
     $st->execute();
@@ -40,6 +42,6 @@ function getRencontresFuture(){
 }
 
 
-
-
-?>
+ getEquipeParticipant();
+echo "hello";
+?> 

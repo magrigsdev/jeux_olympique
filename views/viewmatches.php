@@ -1,6 +1,10 @@
 <?php include("../config/_matches.php"); ?>
 
-<?php $m_ligne = 0;   ?>
+
+<?php $m_ligne = 0; 
+
+?>
+
 <div class="row mt-4 adm_contents">
             <div class="col-md-12">
                 <div class="card p-4">

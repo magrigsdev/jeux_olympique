@@ -221,7 +221,7 @@ if(isset($_POST["update"]))
     $page = "../views/dashboard.php";
     header("location:".$page);
 }
-
+// del
 if(isset($_GET["del"])){
     DelMatch($_GET["del"]);
     $page = "../views/dashboard.php";
