@@ -11,12 +11,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10">
-                            <h3 class="h3 text-uppercase mb-3"> la liste des équipes participantes avec leurs détails (<?php echo count(getEquipeAll()) ?>) </h3>
+                            <h3 class="h3 text-uppercase mb-3"> la liste des équipes participantes avec leurs détails </h3>
                             </div>
 
-                            <div class="col-md-2">
-                                <div class="btn btn-outline-info text-uppercase text-lg" data-bs-toggle="modal" data-bs-target="#ajouterequipe"> ajouter </div>
-                            </div>
                         </div>
 
                         
@@ -33,17 +30,47 @@
                             </thead>
 
                             <tbody>
-                                <?php foreach (getEquipeAll() as $value) : $row = $row + 1 ; ?>
+                                <?php $aff=0; foreach (getEquipeParticipant() as $value) :  $aff++; ?>
                                     <tr>
-                                        <th><?= $row ?>  </th>
-                                        <td><?= $value["nom"]   ?></td> 
-
-                                        <td><form method="POST" action="./viewupdate.php"><input type="text" name="Idupdate" value="<?= $value["id"]?>" hidden/><button type="submit" class="btn btn-outline-warning" name="isUpdate">update</button></form>
-
-                                        <td><form method="POST" action="../config/_equipe.php?del=<?= $value["id"]?>"><button class="btn btn-outline-danger">delete</button> </form></td>                              
+                                        <td><?= $aff;  ?></td> 
+                                        <td><?= $value["nom_equipe"]   ?></td> 
+                                        <td><?= $value["prenom"]   ?></td> 
+                                        <td><?= $value["nom"]   ?></td>
+                                        <td><?= $value["sexe"]   ?></td>
+                                        <td><?= $value["role"]   ?></td>
+                          
                                     </tr>
                                 <?php  endforeach  ?>
+                            </tbody>                                        
+                        </table>
 
+                        <div class="row">
+                            <div class="col-md-10">
+                                    <h3 class="h3 text-uppercase mb-3">la liste des personnes avec leurs equipes</h3>
+                            </div>
+                        </div>
+
+                        <table class="table  table-hover">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th scope="col">#</th>
+                                    <th scope="col">equipe</th>
+                                    <th scope="col">nom</th>
+                                    
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php $affa=0; foreach (getEquipeParticipant() as $value) :  $affa++; ?>
+                                    <tr>
+                                        <td><?= $affa;  ?></td> 
+                                        <td><?= $value["nom_equipe"]   ?></td> 
+                                        
+                                        <td><?= $value["nom"]   ?></td>
+                                        
+                          
+                                    </tr>
+                                <?php  endforeach  ?>
                             </tbody>                                        
                         </table>
 

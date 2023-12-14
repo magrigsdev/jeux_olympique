@@ -68,11 +68,11 @@ function AddEquipe($nom){
         }
     }
     if($isNameExist  != true){
-        // $sql = "INSERT INTO `equipe`(`id_equipe`, `nom_equipe`) VALUES ('NULL','$nom')";
-        $sql = "INSERT INTO equipe VALUES(NULL,:nom)";
+         $sql = "INSERT INTO `equipe`(`id_equipe`, `nom_equipe`) VALUES ('NULL','$nom')";
+        //$sql = "INSERT INTO equipe VALUES(NULL,`$nom`)";
         $stat = $pdo->prepare($sql);
-        // $stat->execute();
-        $stat->execute(["nom"=> $nom]);
+         $stat->execute();
+        // $stat->execute(["nom_equipe"=> $nom]);
     }
 
     return  $isNameExist;

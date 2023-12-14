@@ -23,7 +23,7 @@ function getEquipeParticipant(){
     $st->execute();
     $resultats = $st->fetchAll();
 
-    var_dump($resultats);
+    // var_dump($resultats);
     return $resultats;
 }
 
@@ -41,7 +41,4 @@ function getRencontresFuture(){
     return $resultats;
 }
 
-
- getEquipeParticipant();
-echo "hello";
 ?> 
