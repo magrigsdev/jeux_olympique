@@ -75,3 +75,122 @@ function getRecherchePays($id){
     $row = $stat->fetch();
     return $row["nom_equipe"];
 }
+
+// ============================================
+
+function MatchesAvenir(){
+    include("bd.php");
+    $item = array();
+    $items = array();
+
+    $join = "SELECT * FROM 
+        rencontre
+        WHERE rencontre.date_rencontre LIKE '%2024%'"; 
+
+    $stat = $pdo->prepare($join);
+    $stat->execute();
+    $resultat = $stat->fetchAll(PDO::FETCH_ASSOC);
+
+    //var_dump($resultat);
+
+     foreach ($resultat as $value) {
+         $item["id_rencontre"] = $value["id_rencontre"];
+         $item["lieu"] = $value["lieu"];
+         $item["type"] = $value["type"];
+         $item["id_equipe_a"] = getEquipeforMatches($value["id_equipe_a"]) ;
+         $item["id_equipe_b"] = getEquipeforMatches($value["id_equipe_b"]) ;
+         $item["date_de_rencontre"] = $value["date_rencontre"];
+         //$item["id_match"] = $value["id_match"];
+        //  $item["score_equipe_a"] = $value["score_equipe_a"];
+        //  $item["score_equipe_b"] = $value["score_equipe_b"];
+    
+         $items[] = $item;   
+     }
+     //var_dump($items);
+     return $items;
+     //var_dump($items);
+}
+
+function RechercheMatchesPasse(){
+    include("bd.php");
+    $item = array();
+    $items = array();
+
+    $join = "SELECT * FROM 
+        rencontre
+    LEFT JOIN resultat_match
+        ON rencontre.id_rencontre = resultat_match.id_rencontre
+        WHERE rencontre.date_rencontre LIKE '%2023%'" ; 
+
+    $stat = $pdo->prepare($join);
+    $stat->execute();
+    $resultat = $stat->fetchAll(PDO::FETCH_ASSOC);
+
+    // var_dump($resultat);
+
+     foreach ($resultat as $value) {
+         $item["id_rencontre"] = $value["id_rencontre"];
+
+         $item["id_equipe_a"] = getRecherchePays($value["id_equipe_a"]) ;
+         $item["id_equipe_b"] = getRecherchePays($value["id_equipe_b"]) ;
+  
+        $items[] = $item["id_equipe_b"]; 
+        $items[] = $item["id_equipe_a"];  
+     }
+
+     return $items;
+    //  var_dump($items);
+}
+
+function RechercheMatchesSansAvenir(){
+    include("bd.php");
+    $item = array();
+    $items = array();
+
+    $join = "SELECT * FROM 
+        rencontre
+    INNER JOIN resultat_match
+        ON rencontre.id_rencontre = resultat_match.id_rencontre
+        WHERE rencontre.date_rencontre LIKE '%2023%'" ; 
+
+    $stat = $pdo->prepare($join);
+    $stat->execute();
+    $resultat = $stat->fetchAll(PDO::FETCH_ASSOC);
+
+    // var_dump($resultat);
+
+     foreach ($resultat as $value) {
+            $item["id_equipe_b"] = getRecherchePays($value["id_equipe_b"]) ; 
+            $items[] = $item;      
+     }
+
+
+     return $items;
+       //var_dump($items);
+}
+
+function RechercheMatchesAvecAvenir(){
+    include("bd.php");
+    $item = array();
+    $items = array();
+
+    $join = "SELECT * FROM 
+        rencontre
+    INNER JOIN resultat_match
+        ON rencontre.id_rencontre = resultat_match.id_rencontre
+        WHERE rencontre.date_rencontre LIKE '%2024%'" ; 
+
+    $stat = $pdo->prepare($join);
+    $stat->execute();
+    $resultat = $stat->fetchAll(PDO::FETCH_ASSOC);
+
+    // var_dump($resultat);
+
+     foreach ($resultat as $value) {
+            $item["id_equipe_b"] = getRecherchePays($value["id_equipe_b"]) ; 
+            $items[] = $item;      
+     }
+     
+     return $items;
+       //var_dump($items);
+}

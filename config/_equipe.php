@@ -104,21 +104,22 @@ if(isset($_POST["add"]))
 {
     if(AddEquipe(strtoupper($_POST["equipe"])) != true){
 
-        var_dump(AddEquipe($_POST["equipe"])) ;
+        // var_dump(AddEquipe($_POST["equipe"])) ;
         $page = "../views/dashboard.php";
         header("location:".$page);
     }
     else{
-         include("../config/_header.php");
-         $erreur = "<div class='alert alert-danger'> l\'équipe existe déjà :".strtoupper($_POST["equipe"])." </div>";
-         $retour = "<br><a class='btn btn-outline-danger' href='../views/viewequipe.php'> Retour</a>";
-        echo $erreur;
+        // include("../views/_viewError.php");
+        $page = "../views/viewError.php?equipe=".strtoupper($_POST["equipe"]);
+        header("location:".$page);
+        //  $erreur = "<div class='alert alert-danger'> l\'équipe existe déjà :".strtoupper($_POST["equipe"])." </div>";
+        //  $retour = "<br><a class='btn btn-outline-danger' href='../views/viewequipe.php'> Retour</a>";
+        // echo $erreur;
     }
 }
 
 //update
-if(isset($_POST["update"]))
-{
+if(isset($_POST["update"])){
     UpdateEquipe($_POST["Id_update"], strtoupper($_POST["v_update"]));
     $page = "../views/dashboard.php";
     header("location:".$page);
