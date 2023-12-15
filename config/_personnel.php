@@ -158,10 +158,8 @@ if(isset($_POST["add"]))
         header("location:".$page);
     }
     else{
-         include("../config/_header.php");
-         $erreur = "<div class='alert alert-danger'> donnée  existe déjà :".strtoupper($_POST["equipe"])." </div>";
-         $retour = "<br><a class='btn btn-outline-danger' href='../views/viewequipe.php'> Retour</a>";
-        echo $erreur.$retour;
+        $page = "../views/viewError.php?personnelNom=".$_POST["nom"]."&personnelPrenom=".$_POST["prenom"];
+        header("location:".$page);
     }
 }
 
